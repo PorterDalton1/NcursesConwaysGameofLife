@@ -1,2 +1,2 @@
 # NcursesConwaysGameofLife
-Ncurses implementation of Conways ame of life in C++
+Ncurses implementation of Conways Game of life in C++
