@@ -13,8 +13,7 @@
 /////////////////////////////////////////////////////////////////
 #ifndef __CONWAY_H__
 #define __CONWAY_H__
-#include <vector>
-#include <array>
+
 #include <ncurses.h>
 
 
@@ -24,19 +23,17 @@ class ConwaysGame
     private:
         static const int size_x = 60;
         static const int size_y = 30;
-        //WINDOW * win;
-        char board[size_x][size_y]; //2-d charactor array 
-        std::vector<std::array<int, 2>> live_cells;
+        bool board[size_x][size_y] = {false}; //2-d array that will display true where a live cell will be 
+        WINDOW * win;
+        WINDOW * outline;
+        int getNeighbors(int, int);
+        void one_Cycle();
+        void setup_Game();
+        void end_Game(); //Calls endwin()
 
     public:
         ConwaysGame(); //init
         ConwaysGame(int, int); //Creates board size
-        void create_First_Lives();
-        void one_Cycle();
-        void display_Cells();
-        int getNeighbors(std::array<int, 2>);
-        void setup_Game();
-        void end_Game(); //Calls endwin()
         void mainloop();
 
 };
